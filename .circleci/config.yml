@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    machine:
+      - image: circleci/classic:latest
+    steps:
+      - checkout
+      - run: docker-compose build
+      - run: docker-compose run --rm composer install
+      - run: docker-compose run --rm app vendor/bin/phpcs
+      - run: docker-compose run --rm app vendor/bin/phpunit
