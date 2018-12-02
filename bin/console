@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php declare(strict_types = 1);
+
+set_time_limit(0);
+
+require __DIR__ . '/../vendor/autoload.php';
+$container = require __DIR__ . '/../src/bootstrap.php';
+
+use App\Command\HelloCommand;
+use Symfony\Component\Console\Application;
+
+$app = new Application();
+$app->add($container->get(HelloCommand::class));
+
+$app->run();

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<ruleset name="PHP_CodeSniffer">
+  <ini name="memory_limit" value="128M"/>
+  <arg name="colors"/>
+  <arg name="parallel" value="75"/>
+  <arg value="np"/>
+  <arg name="extensions" value="php"/>
+
+  <file>src</file>
+  <file>config</file>
+
+  <rule ref="PSR12"/>
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/ruleset.xml">
+    <exclude name="SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces.NoEmptyLineAfterOpeningBrace"/>
+    <exclude name="SlevomatCodingStandard.Types.EmptyLinesAroundTypeBraces.NoEmptyLineBeforeClosingBrace"/>
+    <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.UselessDocComment"/>
+    <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation.NonFullyQualifiedClassName"/>
+    <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces.NonFullyQualified"/>
+    <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName"/>
+    <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions.NonFullyQualified"/>
+  </rule>
+  <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
+    <properties>
+      <property name="rootNamespaces" type="array">
+        <element key="src/App" value="App"/>
+        <element key="tests/App" value="App"/>
+        <element key="tests/Util" value="Test\Util"/>
+      </property>
+    </properties>
+  </rule>
+</ruleset>
