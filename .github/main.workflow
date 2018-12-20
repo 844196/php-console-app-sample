@@ -20,13 +20,13 @@ action "Run unit test" {
   args = "test"
 }
 
-workflow "New workflow" {
+workflow "Update Pixela" {
   on = "push"
-  resolves = ["GitHub Action for Pixela"]
+  resolves = ["Update commit graph"]
 }
 
-action "GitHub Action for Pixela" {
-  uses = "./.github/action-pixela"
+action "Update commit graph" {
+  uses = "844196/actions/pixela@master"
   env = {
     PIXELA_USER = "s083027"
     PIXELA_GRAPH = "test"
