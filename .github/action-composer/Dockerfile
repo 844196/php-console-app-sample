@@ -5,3 +5,5 @@ LABEL "com.github.actions.description"="Run composer command"
 LABEL "com.github.actions.icon"="package"
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+
+ENTRYPOINT ["/usr/bin/composer"]
