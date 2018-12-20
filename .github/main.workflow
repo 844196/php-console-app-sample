@@ -19,3 +19,13 @@ action "Run unit test" {
   needs = ["Install dependencies"]
   args = "test"
 }
+
+workflow "New workflow" {
+  on = "push"
+  resolves = ["GitHub Action for Pixela"]
+}
+
+action "GitHub Action for Pixela" {
+  uses = "./.github/action-pixela"
+  args = "aaa"
+}
