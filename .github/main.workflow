@@ -1,9 +1,21 @@
 workflow "CI" {
   on = "push"
-  resolves = ["GitHub Action for composer"]
+  resolves = ["Check code style", "Run unit test"]
 }
 
-action "GitHub Action for composer" {
+action "Install dependencies" {
   uses = "./.github/action-composer"
   args = "install"
+}
+
+action "Check code style" {
+  uses = "./.github/action-composer"
+  needs = ["Install dependencies"]
+  args = "lint"
+}
+
+action "Run unit test" {
+  uses = "./.github/action-composer"
+  needs = ["Install dependencies"]
+  args = "test"
 }
