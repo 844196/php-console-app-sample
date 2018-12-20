@@ -27,5 +27,9 @@ workflow "New workflow" {
 
 action "GitHub Action for Pixela" {
   uses = "./.github/action-pixela"
-  args = "aaa"
+  env = {
+    PIXELA_USER = "s083027"
+    PIXELA_GRAPH = "test"
+  }
+  secrets = ["PIXELA_TOKEN"]
 }
