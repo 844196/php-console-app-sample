@@ -3,5 +3,5 @@
 use Cekurte\Environment\Environment;
 
 return [
-    'defaultMessage' => Environment::get('DEFAULT_MESSAGE', 'Hello!'),
+    'defaultMessage' => Environment::get('DEFAULT_MESSAGE', 'こんにちは'),
 ];
